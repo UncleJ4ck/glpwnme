@@ -31,7 +31,8 @@ patch and not the PHP version):
 
 | Module | Precondition |
 |---|---|
-| `GHSA_7GH3_9VHW_RJ4F`, `CVE_2023_51446` | an LDAP auth source configured (51446 also needs an LDAP-backed credential) |
+| `GHSA_7GH3_9VHW_RJ4F` | an LDAP auth source configured |
+| `CVE_2023_51446` | an LDAP auth source on BOTH a vuln (<10.0.12) and patched (>=10.0.12) instance, plus an LDAP-backed credential (e.g. sectest1). Vuln 10.0.11, patched 10.0.12. |
 | `CVE_2025_21626` | at least one LDAP / mail / IMAP / CAS server configured |
 | `CVE_2023_33971` | the `formcreator` plugin installed AND activated (state 1) |
 | `CVE_2025_32786` | the `glpiinventory` plugin installed AND activated (state 1) |

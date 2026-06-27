@@ -2,4 +2,5 @@ __pycache__/
 log.glpwnme
 check_file.py
 venv/
+.venv/
 tests/

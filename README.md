@@ -191,7 +191,6 @@ cat log.glpwnme
 ![Exploitation of CVE 2024 27937](./images/cve_2024_27937_example_glpwnme.png)
 
 
-
 ## Args details
 ```bash
 # Login with creds
@@ -227,15 +226,32 @@ Moreover the encrypted passwords are stored in the database. A provided file **_
 damn passwords easily. Just access it using the password *'?passwd=P@ssw0rd123'* and you will see the password in use. Add
 the option *'?passwd=P@ssw0rd123&_hidden_cmd=whoami'*, and you will execute the ```whoami``` command on the server. This might give you enough flexibility to recover *important credentials* fastly, and achieve **rev shell** if needed.
 
+## Use glpwnme within python
+
+```python
+from glpwnme.exploits.utils import *
+
+session = GlpiSession("http://localhost", credentials=GlpiCredentials("glpi", "glpi", server_user="", server_password=""))
+session.login_with_credentials()
+
+print(session.get_username())
+```
+
 ## Improvements
 GLPI Version is shown for logged in user, it would be great to add an observer / hook, that detect if we are logged in and if the version has been found. In this case, retrieve the version from the DOM.
 
 Change the way plugins are enumerated, in order to prevent false positive when webroot is not accessible.
 
+Allow authent NTLM and kerberos.
+
+Add mode for login with and without noAUTO.
+
 ## Contributions
 Thanks to the following person for their help:
 * Aurelien In the Shallow
 * Sebastien Le Corre
+* chapochapo
+* UncleJ4ck
 
 ## FAQ
 ### I cannot connect with glpwnme ?
